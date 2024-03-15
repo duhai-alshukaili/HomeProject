@@ -33,7 +33,7 @@ public class LoginServlet extends  HttpServlet{
         if (username.equals(correctUsername) && password.equals(correctPassword)) {
             // User is valid
             request.getSession().setAttribute("user", username); // Save user in session
-            response.sendRedirect("home.jsp"); // Redirect to welcome page
+            response.sendRedirect("index.jsp"); // Redirect to welcome page
         } else {
             // User is invalid
             request.setAttribute("errorMessage", "Invalid username or password");

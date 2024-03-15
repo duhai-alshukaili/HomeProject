@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
 <%
     request.setAttribute("currentPage", "home");
 %>
@@ -16,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 
-    <title>Sticky Footer Navbar Template · Bootstrap v5.0</title>
+    <title>Easy Home Rental Management System</title>
 
 
     <!-- Bootstrap core CSS -->
@@ -47,6 +50,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/sticky-footer-navbar.css" rel="stylesheet">
+
 </head>
 <body class="d-flex flex-column h-100">
 
@@ -55,7 +59,21 @@
 
 <!-- Begin page content -->
 <main class="flex-shrink-0">
+
     <div class="container">
+        <!-- Display flash message if available -->
+        <%
+            String flashMessage = (String) request.getAttribute("flashMessage");
+            if (flashMessage != null && !flashMessage.isEmpty()) {
+        %>
+        <div class="alert alert-info" role="alert">
+            <%= flashMessage %>
+        </div>
+
+
+        <%
+            }
+        %>
         <h1 class="mt-5">Sticky footer with fixed navbar</h1>
         <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code class="small">padding-top: 60px;</code> on the <code class="small">main &gt; .container</code>.</p>
         <p>Back to <a href="https://google.com">the default sticky footer</a> minus the navbar.</p>
